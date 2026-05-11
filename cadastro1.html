@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>CicloCare | Login</title>
+  <title>CicloCare | Cadastro</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/cadastro.css">
 
 </head>
 
@@ -48,7 +48,10 @@
 
       <div class="logo">
 
-        <img src="./assets/images/icone.png" alt="Logo CicloCare">
+        <img
+          src="./assets/images/icone.png"
+          alt="Logo CicloCare"
+        >
 
         <span>CicloCare</span>
 
@@ -59,11 +62,14 @@
         você aqui!
       </h1>
 
-    <h1 class="welcome1">
-        Sua jornada de autoconhecimento 
-começa agora. 
-Vamos cuidar do 
-seu ciclo, juntas?
+      <h1 class="welcome1">
+
+        Sua jornada de
+        autoconhecimento
+        começa agora.
+        Vamos cuidar do
+        seu ciclo, juntas?
+
       </h1>
 
     </section>
@@ -72,6 +78,10 @@ seu ciclo, juntas?
 
       <div class="register-box">
 
+        <h2 class="box-title">
+          Cadastro
+        </h2>
+
         <form id="registerForm">
 
           <div class="form-group">
@@ -79,11 +89,15 @@ seu ciclo, juntas?
             <label>Nome</label>
 
             <input
-              type="nome"
+              type="text"
               class="form-control"
               placeholder="Digite seu nome"
               id="nome"
             >
+
+          </div>
+
+          <div class="form-group">
 
             <label>Email</label>
 
@@ -100,18 +114,53 @@ seu ciclo, juntas?
 
             <label>Senha</label>
 
-            <input
-              type="password"
-              class="form-control"
-              placeholder="Digite sua senha"
-              id="senha"
-            >
+            <div class="password-box">
+
+              <input
+                type="password"
+                class="form-control"
+                id="senha"
+                placeholder="Senha"
+              >
+
+              <button
+                type="button"
+                id="togglePassword"
+              >
+
+                <img
+                  id="eyeIcon"
+                  src="assets/icons/olhoaberto.png"
+                  alt=""
+                >
+
+              </button>
+
+            </div>
 
           </div>
 
-          <button class="login-btn" type="submit">
-            Entrar
+          <button
+            class="login-btn"
+            type="submit"
+          >
+            Próximo
           </button>
+
+          <div class="forgot">
+
+            <p>
+
+              <a
+                class="forgot"
+                href="login.html"
+              >
+                Já tem uma conta? Entrar
+              </a>
+
+            </p>
+
+          </div>
 
         </form>
 

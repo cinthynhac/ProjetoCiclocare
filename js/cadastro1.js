@@ -1,18 +1,53 @@
 const form =
 document.getElementById('registerForm');
 
+const togglePassword =
+document.getElementById(
+  'togglePassword'
+);
+
+const senhaInput =
+document.getElementById('senha');
+
+const eyeIcon =
+document.getElementById('eyeIcon');
+
+togglePassword.addEventListener('click', () => {
+
+  if(senhaInput.type === 'password'){
+
+    senhaInput.type = 'text';
+
+    eyeIcon.src =
+    'assets/icons/olhofechado.png';
+
+  }else{
+
+    senhaInput.type = 'password';
+
+    eyeIcon.src =
+    'assets/icons/olhoaberto.png';
+
+  }
+
+});
+
 form.addEventListener('submit', async (event) => {
 
   event.preventDefault();
 
   const nome =
-  document.getElementById('nome').value.trim();
+  document.getElementById('nome')
+  .value
+  .trim();
 
   const email =
-  document.getElementById('email').value.trim();
+  document.getElementById('email')
+  .value
+  .trim();
 
   const senha =
-  document.getElementById('senha').value.trim();
+  senhaInput.value.trim();
 
   if(
     nome === '' ||
@@ -51,10 +86,12 @@ form.addEventListener('submit', async (event) => {
 
     if(response.ok){
 
-      alert('Cadastro realizado com sucesso!');
+      alert(
+        'Cadastro realizado com sucesso!'
+      );
 
       window.location.href =
-      'index.html';
+      'cadastro2.html';
 
     }else{
 
