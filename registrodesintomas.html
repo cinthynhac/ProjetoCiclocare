@@ -165,6 +165,128 @@
 <!-- JS -->
   <script src="./js/registrodesintomas.js"></script>
 
+  <div class="background">
+      
+      <main class="container-principal">
+          <div class="titulos-topo">
+              <h1>Hoje</h1>
+              <h2>3° dia de ciclo</h2>
+          </div>
+      
+      <div class="busca-sintomas">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="Buscar sintomas...">
+          </div>
+
+          <div class="caixa-feeling">
+              <textarea placeholder="Como você está se sentindo hoje? Escreva aqui..."></textarea>
+          </div>
+
+          <h3 class="titulo-categorias">Categorias</h3>
+
+          <div class="grid-categorias">
+
+      <!-- SEXO E LIBIDO -->
+      <div class="card-categoria">
+          <h4>Sexo e Libido</h4>
+
+          <div class="opcoes-grid">
+
+              <button class="btn-opt sexo" onclick="select(this)">💔 Não fiz sexo</button>
+              <button class="btn-opt sexo" onclick="select(this)"><i class="fa-solid fa-face-meh"></i> Libido neutra</button>
+              <button class="btn-opt sexo" onclick="select(this)">🛡️ Sexo com proteção</button>
+              <button class="btn-opt sexo" onclick="select(this)"><i class="fa-solid fa-arrow-down"></i> Libido baixa</button>
+              <button class="btn-opt sexo" onclick="select(this)">💋 Sexo oral</button>
+              <button class="btn-opt sexo" onclick="select(this)">💕 Libido alta</button>
+              <button class="btn-opt sexo" onclick="select(this)"><i class="fa-solid fa-circle-exclamation"></i> Sexo sem proteção</button>
+              <button class="btn-opt sexo" onclick="select(this)"><i class="fa-solid fa-hand-sparkles"></i> Masturbação</button>
+
+          </div>
+      </div>
+
+      <!-- HUMOR -->
+      <div class="card-categoria">
+
+          <h4>Humor</h4>
+
+          <div class="opcoes-grid">
+
+              <button class="btn-opt humor" onclick="select(this)">😌 Calma</button>
+              <button class="btn-opt humor" onclick="select(this)">😁 Alegre</button>
+              <button class="btn-opt humor" onclick="select(this)">🙂 Feliz</button>
+              <button class="btn-opt humor" onclick="select(this)">😔 Triste</button>
+              <button class="btn-opt humor" onclick="select(this)">😤 Irritada</button>
+              <button class="btn-opt humor" onclick="select(this)">⚡ Energética</button>
+              <button class="btn-opt humor" onclick="select(this)">😓 Culpada</button>
+              <button class="btn-opt humor" onclick="select(this)">😟 Ansiosa</button>
+              <button class="btn-opt humor" onclick="select(this)">😶 Apática</button>
+              <button class="btn-opt humor" onclick="select(this)">🔄 Mudanças de Humor</button>
+              <button class="btn-opt humor" onclick="select(this)">😵 Confusa</button>
+              <button class="btn-opt humor" onclick="select(this)">🧠 Muito autocrítica</button>
+              <button class="btn-opt humor" onclick="select(this)">😴 Desanimada</button>
+              <button class="btn-opt humor" onclick="select(this)">💭 Pensamentos obsessivos</button>
+
+          </div>
+      </div>
+
+      <!-- SINTOMAS -->
+      <div class="card-categoria">
+
+          <h4>Sintomas</h4>
+
+          <div class="opcoes-grid">
+
+              <button class="btn-opt sintomas" onclick="select(this)">👍 Está tudo bem</button>
+              <button class="btn-opt sintomas" onclick="select(this)">🔥 Cólicas</button>
+              <button class="btn-opt sintomas" onclick="select(this)">💗 Seios sensíveis</button>
+              <button class="btn-opt sintomas" onclick="select(this)">🤕 Dor de cabeça</button>
+              <button class="btn-opt sintomas" onclick="select(this)">✨ Acne</button>
+              <button class="btn-opt sintomas" onclick="select(this)">🦴 Dor nas costas</button>
+              <button class="btn-opt sintomas" onclick="select(this)">😩 Fadiga</button>
+              <button class="btn-opt sintomas" onclick="select(this)">🍔 Desejos</button>
+              <button class="btn-opt sintomas" onclick="select(this)">🌙 Insônia</button>
+              <button class="btn-opt sintomas" onclick="select(this)">🤢 Dor abdominal</button>
+              <button class="btn-opt sintomas" onclick="select(this)">🩹 Coceira vaginal</button>
+              <button class="btn-opt sintomas" onclick="select(this)">💧 Ressecamento vaginal</button>
+
+          </div>
+      </div>
+
+      <!-- SECREÇÃO -->
+      <div class="card-categoria">
+
+          <h4>Secreção vaginal</h4>
+
+          <div class="opcoes-grid">
+
+              <button class="btn-opt secrecao" onclick="select(this)">🩷 Sem secreção</button>
+              <button class="btn-opt secrecao" onclick="select(this)">🤍 Pastosa</button>
+              <button class="btn-opt secrecao" onclick="select(this)">💦 Aquosa</button>
+              <button class="btn-opt secrecao" onclick="select(this)">🪻 Viscosa</button>
+              <button class="btn-opt secrecao" onclick="select(this)">🥚 Clara de ovo</button>
+              <button class="btn-opt secrecao" onclick="select(this)">🩸 Sangramentos de escape</button>
+              <button class="btn-opt secrecao" onclick="select(this)">⚠️ Corrimento incomum</button>
+              <button class="btn-opt secrecao" onclick="select(this)">☁️ Branca grumosa</button>
+              <button class="btn-opt secrecao" onclick="select(this)">🌫️ Cinza</button>
+
+          </div>
+      </div>
+
+  </div>
+
+  <button class="btn-salvar-final">
+      Salvar Registro
+  </button>
+
+        </main>
+    </div>
+
+  <script>
+      function select(btn) {
+          btn.classList.toggle('active');
+      }
+  </script>
+
 </body>
 
 </html>
