@@ -1,3 +1,4 @@
+
 // =========================
 // DROPDOWN MENU
 // =========================
@@ -9,34 +10,11 @@ const dropdownContent =
 document.querySelector(".dropdown-content");
 
 if (dropdownBtn && dropdownContent) {
-
-let currentDate = new Date();
-
-const dropdownBtn = document.querySelector(".dropdown-btn");
-const dropdownContent = document.querySelector(".dropdown-content");
-
-if (dropdownBtn && dropdownContent) {
   dropdownBtn.addEventListener("click", () => {
     dropdownContent.classList.toggle("active");
   });
 }
 
-function renderCalendar(){
-
-  calendarGrid.innerHTML = '';
-
-    if (dropdownContent.style.display === "flex") {
-
-      dropdownContent.style.display = "none";
-
-    } else {
-
-      dropdownContent.style.display = "flex";
-
-    }
-
-  });
-}
 
 // =========================
 // SIDEBAR NOTIFICAÇÕES
@@ -115,7 +93,6 @@ function renderCalendar(date) {
   calendarGrid.innerHTML = "";
 
   const year = date.getFullYear();
-
   const month = date.getMonth();
 
   const firstDay =
@@ -123,6 +100,8 @@ function renderCalendar(date) {
 
   const lastDate =
   new Date(year, month + 1, 0).getDate();
+
+  const prevLastDate = new Date(year, month, 0).getDate();
 
   const monthNames = [
 
@@ -144,35 +123,44 @@ function renderCalendar(date) {
   monthYear.textContent =
   `${monthNames[month]} ${year}`;
 
-  for (let i = 0; i < firstDay; i++) {
+  for (let i = firstDay; i > 0; i--) {
+    const dayElement = document.createElement("div");
 
-    const emptyDay =
-    document.createElement("div");
+    dayElement.classList.add("day", "other-month");
+    dayElement.textContent = String(prevLastDate - i + 1).padStart(2, "0");
 
-    calendarGrid.appendChild(emptyDay);
+    calendarGrid.appendChild(dayElement);
   }
 
   for (let day = 1; day <= lastDate; day++) {
+    const dayElement = document.createElement("div");
 
-    const dayElement =
-    document.createElement("div");
-
-    dayElement.classList.add("day");
-
-    dayElement.textContent = day;
+    dayElement.classList.add("day", "current-month");
+    dayElement.textContent = String(day).padStart(2, "0");
 
     dayElement.addEventListener("click", () => {
-
       document
-        .querySelectorAll(".day")
-        .forEach(d => d.classList.remove("selected"));
+        .querySelectorAll(".calendar-grid .day")
+        .forEach((item) => item.classList.remove("selected"));
 
       dayElement.classList.add("selected");
-
     });
 
     calendarGrid.appendChild(dayElement);
   }
+
+    const totalCells = firstDay + lastDate;
+  const nextDays = 42 - totalCells;
+
+  for (let day = 1; day <= nextDays; day++) {
+    const dayElement = document.createElement("div");
+
+    dayElement.classList.add("day", "other-month");
+    dayElement.textContent = String(day).padStart(2, "0");
+
+    calendarGrid.appendChild(dayElement);
+  }
+  
 }
 
 // MÊS ANTERIOR
