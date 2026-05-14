@@ -70,7 +70,7 @@ form.addEventListener('submit', async (event) => {
   try{
 
     const response = await fetch(
-      'http://localhost:8080/api/usuarios/cadastro',
+      'http://localhost:8082/api/usuarios/registrar',
       {
 
         method:'POST',
@@ -112,3 +112,4 @@ form.addEventListener('submit', async (event) => {
   }
 
 });
+
