@@ -892,6 +892,22 @@ input:checked + .slider:before{
   color: var(--text-main);
 }
 
+.menstrual {
+  background: #ff6b81;
+}
+
+.folicular {
+  background: #7bed9f;
+}
+
+.ovulacao {
+  background: #feca57;
+}
+
+.lutea {
+  background: #a29bfe;
+}
+
 @keyframes fadeUp{
 
   from{

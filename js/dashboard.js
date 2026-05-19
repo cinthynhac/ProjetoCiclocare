@@ -218,11 +218,7 @@ if (nextMonth) {
 //              CICLO MENSTRUAL
 //=================================================
 
-const cycleData = {
-  lastPeriodStart: "2026-04-29",
-  cycleLength: 28,
-  periodLength: 5
-};
+let cycleData = null;
 
 function parseLocalDate(dateString) {
   const [year, month, day] = dateString.split("-").map(Number);
@@ -246,8 +242,8 @@ function daysBetween(startDate, targetDate) {
 }
 
 function isMenstruationDay(date) {
+  if (!cycleData) { return false; }
   const lastPeriodStart = parseLocalDate(cycleData.lastPeriodStart);
-
   const daysFromStart = daysBetween(lastPeriodStart, date);
 
   if (daysFromStart < 0) {
@@ -258,6 +254,103 @@ function isMenstruationDay(date) {
 
   return cycleDay < cycleData.periodLength;
 }  
+
+// ============================================================
+//                        DASHBOARD
+// ============================================================
+
+function alterarCorCirculo(fase) {
+  const cycleCircle = document.getElementById("cycle-circle");
+
+  switch (fase) {
+    case "MENSTRUAL":
+      cycleCircle.classList.add("menstrual");
+      break;
+    
+    case "FOLICULAR":
+      cycleCircle.classList.add("folicular");
+      break;
+
+    case "OVULACAO":
+      cycleCircle.classList.add("ovulacao");
+      break;
+
+    case "LUTEA":
+      cycleCircle.classList.add("lutea");   
+      break;
+  }
+
+}
+
+function atualizarDashboard(data) {
+    const fase = document.getElementById("fase-ciclo");
+
+    const dia = document.getElementById("dia-ciclo");
+
+    const mensagem = document.getElementById("mensagem-ciclo");
+
+    fase.innerText = formatarFase(data.faseCiclo);
+
+    dia.innerText = `Dia ${data.diaCiclo}`;
+
+    mensagem.innerText = data.mensagem;
+
+    alterarCorCirculo(data.faseCiclo);
+}
+
+function formatarFase(fase) {
+
+  switch(fase) {
+
+    case "MENSTRUAL":
+        return "Menstruação";
+
+    case "FOLICULAR":
+        return "Fase Folicular";
+
+    case "OVULACAO":
+        return "Ovulação";
+
+    case "LUTEA":
+        return "Fase Lútea";
+
+    default:
+        return "Ciclo";
+  }
+}
+
+async function exibirDashboard() {  
+  try {
+    const usuarioId = localStorage.getItem("usuarioId");
+    const token = localStorage.getItem("token");
+    
+    const response = await fetch(
+      `http://localhost:8080/api/usuarios/${usuarioId}/dashboard`,
+      {
+        headers: {
+        Authorization: `Bearer ${token}`
+        }
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Erro ao carregar dashboard: ${response.status}`)
+    }
+    const data = await response.json();
+
+    cycleData = {
+      lastPeriodStart: data.ultimaMenstruacao,
+      cycleLength: data.duracaoCiclo,
+      periodLength: data.duracaoMenstruacao
+    }
+
+    atualizarDashboard(data);
+    renderCalendar(currentDate);
+  
+  } catch (error) {
+    console.error("Erro ao carregar dashboard:", error);
+  }
+}
 
 // INICIAR CALENDÁRIO
 
