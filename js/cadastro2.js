@@ -4,9 +4,13 @@ document.getElementById('formCiclo');
 form.addEventListener(
   'submit',
 
-  async (event) => {
+form.addEventListener('submit', async (event) => {
 
-    event.preventDefault();
+  event.preventDefault();
+
+  const usuarioSalvo = JSON.parse(
+    localStorage.getItem("cadastroUsuario")
+  );
 
     const token =
     localStorage.getItem('token');
@@ -135,4 +139,4 @@ form.addEventListener(
 
     }
 
-});
+}));
