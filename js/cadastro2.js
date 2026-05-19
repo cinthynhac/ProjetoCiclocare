@@ -108,7 +108,7 @@ form.addEventListener('submit', async (event) => {
         );
 
         window.location.href =
-        'index.html';
+        'login.html';
 
       }else{
 
